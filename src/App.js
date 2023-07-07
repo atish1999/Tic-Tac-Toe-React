@@ -15,7 +15,7 @@ function Board() {
 
   function squareValueSetter(i) {
 
-    if (squareValues[i])
+    if (calculateWinner(squareValues) || squareValues[i])
       return;
 
     const temp = squareValues.slice();
@@ -26,6 +26,35 @@ function Board() {
     }
     setIsXNext(!isXNext);
     setSquareValues(temp);
+  }
+
+  function calculateWinner(squareValues) {
+    const winningPoistions = [
+      // row-wise
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      // column-wise
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      // diagonal-wise
+      [0, 4, 8],
+      [2, 4, 6]
+    ];
+
+    for (let position of winningPoistions) {
+
+      let firstIndex = position[0];
+      let secondIndex = position[1];
+      let thirdIndex = position[2];
+
+      if (squareValues[firstIndex] === squareValues[secondIndex] && squareValues[secondIndex] === squareValues[thirdIndex]) {
+        return squareValues[firstIndex];
+      }
+    }
+
+    return null;
   }
 
   return (
