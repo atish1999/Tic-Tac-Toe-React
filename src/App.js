@@ -10,7 +10,25 @@ function Square() {
 function Board() {
   return (
     <React.Fragment>
-      <Square />
+      
+      <div class="board-row">
+        <Square />
+        <Square />
+        <Square />
+      </div>
+
+      <div class="board-row">
+        <Square />
+        <Square />
+        <Square />
+      </div>
+
+      <div class="board-row">
+        <Square />
+        <Square />
+        <Square />
+      </div>
+
     </React.Fragment>
   );
 }
