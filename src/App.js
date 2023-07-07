@@ -57,8 +57,21 @@ function Board() {
     return null;
   }
 
+  let winner = calculateWinner(squareValues);
+  let status;
+
+  if (winner) {
+    status = "winner is: " + winner;
+  } else {
+    status = "Nesxt Turn: " + (isXNext ? "X" : "O");
+  }
+
   return (
     <React.Fragment>
+
+      <div class="status">
+        {status}
+      </div>
 
       <div class="board-row">
         <Square
