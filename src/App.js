@@ -94,7 +94,7 @@ function Board() {
         />
 
         <Square
-          value={squareValues[7]}
+          value={squareValues[8]}
           handleClick={() => {
             squareValueSetter(8);
           }}
