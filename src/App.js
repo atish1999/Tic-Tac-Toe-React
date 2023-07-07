@@ -14,6 +14,10 @@ function Board() {
   const [isXNext, setIsXNext] = useState(true);
 
   function squareValueSetter(i) {
+
+    if (squareValues[i])
+      return;
+
     const temp = squareValues.slice();
     if (isXNext) {
       temp[i] = 'X';
