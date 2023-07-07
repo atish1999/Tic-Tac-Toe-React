@@ -11,11 +11,16 @@ function Square({ value, handleClick }) {
 function Board() {
 
   const [squareValues, setSquareValues] = useState(Array(9).fill(null));
+  const [isXNext, setIsXNext] = useState(true);
 
   function squareValueSetter(i) {
     const temp = squareValues.slice();
-    // console.log(typeof temp);
-    temp[i] = 'X';
+    if (isXNext) {
+      temp[i] = 'X';
+    } else {
+      temp[i] = 'O';
+    }
+    setIsXNext(!isXNext);
     setSquareValues(temp);
   }
 
